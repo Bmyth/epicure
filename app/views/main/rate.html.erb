@@ -1,0 +1,7 @@
+<h1>rate for : <%= @current_restaurant.name %></h1>
+<%= form_tag('/rated', :id => "auth-form") do %>
+
+  <%= text_field_tag('point', nil) %>
+
+  <%= submit_tag("submit", :id => "button", :class => "btn btn-success") %>
+<% end %>

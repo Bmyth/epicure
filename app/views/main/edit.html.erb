@@ -1,0 +1,10 @@
+<%= form_tag('/reset', :id => "auth-form") do %>
+  <% @team.restaurants.each do |c| %>
+    <li>
+      <%= text_field_tag('name'+ c.id.to_s(), c.name) %>
+      <%= text_field_tag('rate'+ c.id.to_s(), c.rate) %>
+      </li>
+  <% end %>
+
+  <%= submit_tag("submit", :id => "button", :class => "btn btn-success") %>
+<% end %>

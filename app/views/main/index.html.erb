@@ -1,0 +1,38 @@
+<div class="container" style="width: 1000px; margin: 0 auto; overflow:hidden;">
+
+<div class="left" style="width: 350px; float:left;">
+<h1><%= @team.name %></h1>
+<% @sum = 0 %>
+<% @team.restaurants.each do |c| %>
+    <% @sum += c.rate %>
+<% end %>
+
+<a class="pick" href="/pick" style="font-size: 40px;">Today's lunch</a>
+<h1 class="result" style="color: red; font-size: 70px;"><%= @current_restaurant %></h1>
+
+
+<ul>
+    <% @team.restaurants.each do |c| %>
+      <% if c.name != "none" %>
+      <li>
+        <span class="name"><%= c.name %></span>
+        <span ><%= c.rate %></span>
+        <span class="rate" style="display:none;"><%= c.rate/@sum * 100 %></span>
+      </li>
+      <% end %>
+    <% end %>
+</ul>
+
+<a class="edit" href="/edit" style="font-size: 40px;">Edit</a>
+<br>
+<a class="rate" href="/rate" style="font-size: 40px;">Rate</a>
+</div>
+
+<div class="middle" style="width: 620px; float:left;">
+
+
+<div id="holder"></div>
+</div>
+
+
+
